@@ -1,0 +1,115 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwuk01hjwntqr"]
+
+[ext_resource type="Texture2D" uid="uid://cefe64xeaoyjq" path="res://sprites/backroundGame/directorOfice.jpg" id="1_g1lsw"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_qbvbt"]
+[ext_resource type="Texture2D" uid="uid://d3etyn4h4ijaf" path="res://sprites/director/smile.png" id="2_yw4np"]
+[ext_resource type="Texture2D" uid="uid://bochhm60qntby" path="res://sprites/director/sad.png" id="3_vf4bf"]
+[ext_resource type="Texture2D" uid="uid://bmlvvdfgvvjwe" path="res://sprites/director/delighted.png" id="4_o52xh"]
+[ext_resource type="Texture2D" uid="uid://e1uo4r7m4v24" path="res://sprites/director/normal.png" id="5_1tsee"]
+[ext_resource type="Texture2D" uid="uid://d1bawn7y5tvwc" path="res://sprites/director/shocked.png" id="6_l64rx"]
+[ext_resource type="PackedScene" uid="uid://ta72r6k4eky2" path="res://scenes/dialog.tscn" id="8_iabpq"]
+
+[sub_resource type="Animation" id="Animation_u3iy8"]
+resource_name = "animDesapiarPhone"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("whitePhone:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m8kgp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("whitePhone:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c4t0i"]
+_data = {
+"RESET": SubResource("Animation_m8kgp"),
+"animDesapiarPhone": SubResource("Animation_u3iy8")
+}
+
+[node name="Game" type="CanvasLayer"]
+script = ExtResource("1_qbvbt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_g1lsw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="VBoxContainer"]
+scale = Vector2(0.5, 0.5)
+
+[node name="smile" type="Sprite2D" parent="VBoxContainer/StaticBody2D"]
+position = Vector2(0, -640)
+texture = ExtResource("2_yw4np")
+
+[node name="sad" type="Sprite2D" parent="VBoxContainer/StaticBody2D"]
+visible = false
+position = Vector2(0, -640)
+texture = ExtResource("3_vf4bf")
+
+[node name="delighted" type="Sprite2D" parent="VBoxContainer/StaticBody2D"]
+visible = false
+position = Vector2(0, -640)
+texture = ExtResource("4_o52xh")
+
+[node name="normal" type="Sprite2D" parent="VBoxContainer/StaticBody2D"]
+visible = false
+position = Vector2(0, -640)
+texture = ExtResource("5_1tsee")
+
+[node name="shocked" type="Sprite2D" parent="VBoxContainer/StaticBody2D"]
+visible = false
+position = Vector2(0, -640)
+texture = ExtResource("6_l64rx")
+
+[node name="dialog" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="whitePhone" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DesapiarPhone" type="AnimationPlayer" parent="."]
+autoplay = "animDesapiarPhone"
+libraries = {
+"": SubResource("AnimationLibrary_c4t0i")
+}
+
+[node name="dialog" parent="." instance=ExtResource("8_iabpq")]
