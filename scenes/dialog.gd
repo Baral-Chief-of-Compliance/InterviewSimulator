@@ -19,24 +19,24 @@ var dialog = [
 		"answers": [
 			{
 				"text": "Не знаю",
-				"score": -1,
+				"score": 5,
 				"emotionalColor" : "smile"
 			},
 			{
 				"text": "Потому что",
-				"score": -1,
+				"score": 10,
 				"emotionalColor" : "sad"
 			},
 			
 			{
 				"text": "Как то так",
-				"score": -1,
+				"score": 15,
 				"emotionalColor" : "delighted"
 			},
 			
 			{
 				"text": "че то да",
-				"score": -1,
+				"score": 20,
 				"emotionalColor" : "normal"
 			},
 		]
@@ -46,24 +46,24 @@ var dialog = [
 		"answers": [
 			{
 				"text": "1",
-				"score": -1,
+				"score": 25,
 				"emotionalColor" : "shocked"
 			},
 			{
 				"text": "2",
-				"score": -1,
+				"score": 30,
 				"emotionalColor" : "smile"
 			},
 			
 			{
 				"text": "3",
-				"score": -1,
+				"score": 35,
 				"emotionalColor" : "sad"
 			},
 			
 			{
 				"text": "4",
-				"score": -1,
+				"score": 40,
 				"emotionalColor" : "delighted"
 			},
 		]
@@ -71,35 +71,43 @@ var dialog = [
 ]
 
 func show_question():
-	current_question = dialog[current_question_index]
-	var dialog_box_instantiate = dialog_box.instantiate()
-	dialog_box_instantiate.dialogText = current_question["question"]
-	$VBoxContainer/question.add_child(dialog_box_instantiate)
-	dialog_box_instantiate.display_text(current_question["question"])
-	
-	#добавить расстояние между вопросом и ответами
-	var marginBetweenAnswersInstantiate = marginBetweenAnswers.instantiate()
-	$VBoxContainer/answeres.add_child(marginBetweenAnswersInstantiate)
-	
-	if current_question["answers"] == []:
-		$VBoxContainer/Button.show()
+	if (current_question_index + 1) > len(dialog):
+		var ApairPhone = get_tree().get_root().get_node("Game/ApiarPhone")
+		ApairPhone.play("apairPhone")
+		#await get_tree().change_scene_to_file("res://scenes/game_menu.tscn")
 	else:
-		$VBoxContainer/Button.hide()
-	
-func show_answers():
-	var answers = dialog[current_question_index]["answers"]
-	
-	for a in answers:
-		var answer_instantiate = answer.instantiate()
-		answer_instantiate.buttonLabel = a["text"]
-		answer_instantiate.score = a["score"]
-		answer_instantiate.emotionalColor = a["emotionalColor"]
-		$VBoxContainer/answeres.add_child(answer_instantiate)
+		current_question = dialog[current_question_index]
+		var dialog_box_instantiate = dialog_box.instantiate()
+		dialog_box_instantiate.dialogText = current_question["question"]
+		$VBoxContainer/question.add_child(dialog_box_instantiate)
+		dialog_box_instantiate.display_text(current_question["question"])
 		
-		#добавляем расстояние между ответами
+		#добавить расстояние между вопросом и ответами
 		var marginBetweenAnswersInstantiate = marginBetweenAnswers.instantiate()
 		$VBoxContainer/answeres.add_child(marginBetweenAnswersInstantiate)
-		#answer_instantiate.display_text(a["text"])
+		
+		if current_question["answers"] == []:
+			$VBoxContainer/Button.show()
+		else:
+			$VBoxContainer/Button.hide()
+	
+func show_answers():
+	if (current_question_index + 1) > len(dialog):
+		pass
+	else:
+		var answers = dialog[current_question_index]["answers"]
+		
+		for a in answers:
+			var answer_instantiate = answer.instantiate()
+			answer_instantiate.buttonLabel = a["text"]
+			answer_instantiate.score = a["score"]
+			answer_instantiate.emotionalColor = a["emotionalColor"]
+			$VBoxContainer/answeres.add_child(answer_instantiate)
+			
+			#добавляем расстояние между ответами
+			var marginBetweenAnswersInstantiate = marginBetweenAnswers.instantiate()
+			$VBoxContainer/answeres.add_child(marginBetweenAnswersInstantiate)
+			#answer_instantiate.display_text(a["text"])
 	
 
 # Called when the node enters the scene tree for the first time.

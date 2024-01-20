@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/image="res://sprites/logoLoad/bootLogo.png"
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://Globals/globals.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

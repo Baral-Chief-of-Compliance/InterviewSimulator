@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwuk01hjwntqr"]
+[gd_scene load_steps=16 format=3 uid="uid://dwuk01hjwntqr"]
 
 [ext_resource type="Texture2D" uid="uid://cefe64xeaoyjq" path="res://sprites/backroundGame/directorOfice.jpg" id="1_g1lsw"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_qbvbt"]
@@ -45,6 +45,43 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_m8kgp"),
 "animDesapiarPhone": SubResource("Animation_u3iy8")
+}
+
+[sub_resource type="Animation" id="Animation_eberh"]
+resource_name = "apairPhone"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("whitePhone:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kas6b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("whitePhone:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y61sf"]
+_data = {
+"RESET": SubResource("Animation_kas6b"),
+"apairPhone": SubResource("Animation_eberh")
 }
 
 [node name="Game" type="CanvasLayer"]
@@ -109,6 +146,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [node name="DesapiarPhone" type="AnimationPlayer" parent="."]
 autoplay = "animDesapiarPhone"
@@ -117,3 +155,8 @@ libraries = {
 }
 
 [node name="dialog" parent="." instance=ExtResource("8_iabpq")]
+
+[node name="ApiarPhone" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y61sf")
+}
