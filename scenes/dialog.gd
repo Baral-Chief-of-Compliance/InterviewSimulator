@@ -2,6 +2,8 @@ extends Control
 
 
 @onready var dialog_box = preload("res://scenes/dialog_box.tscn")
+@onready var answer = preload("res://scenes/answer.tscn")
+@onready var marginBetweenAnswers = preload("res://scenes/margin_between_answers.tscn")
 
 
 var current_question_index = 0
@@ -9,7 +11,8 @@ var current_question = {}
 
 var dialog = [
 	{
-		"question": "Здравствуйте! Меня зовут Александра и директор этой компании. И буду вас собеседовать."
+		"question": "Здравствуйте! Меня зовут Александра и директор этой компании. И буду вас собеседовать.",
+		"answers" : []
 	},
 	{
 		"question": "Чем вас привлекла наша вакансия",
@@ -17,24 +20,51 @@ var dialog = [
 			{
 				"text": "Не знаю",
 				"score": -1,
-				"reaction" : "schock"
+				"emotionalColor" : "smile"
 			},
 			{
 				"text": "Потому что",
 				"score": -1,
-				"reaction" : "schock"
+				"emotionalColor" : "sad"
 			},
 			
 			{
 				"text": "Как то так",
 				"score": -1,
-				"reaction" : "schock"
+				"emotionalColor" : "delighted"
 			},
 			
 			{
 				"text": "че то да",
 				"score": -1,
-				"reaction" : "schock"
+				"emotionalColor" : "normal"
+			},
+		]
+	},
+	{
+		"question": "Это будет второй вопрос",
+		"answers": [
+			{
+				"text": "1",
+				"score": -1,
+				"emotionalColor" : "shocked"
+			},
+			{
+				"text": "2",
+				"score": -1,
+				"emotionalColor" : "smile"
+			},
+			
+			{
+				"text": "3",
+				"score": -1,
+				"emotionalColor" : "sad"
+			},
+			
+			{
+				"text": "4",
+				"score": -1,
+				"emotionalColor" : "delighted"
 			},
 		]
 	}
@@ -46,16 +76,30 @@ func show_question():
 	dialog_box_instantiate.dialogText = current_question["question"]
 	$VBoxContainer/question.add_child(dialog_box_instantiate)
 	dialog_box_instantiate.display_text(current_question["question"])
-	$VBoxContainer/Button.show()
+	
+	#добавить расстояние между вопросом и ответами
+	var marginBetweenAnswersInstantiate = marginBetweenAnswers.instantiate()
+	$VBoxContainer/answeres.add_child(marginBetweenAnswersInstantiate)
+	
+	if current_question["answers"] == []:
+		$VBoxContainer/Button.show()
+	else:
+		$VBoxContainer/Button.hide()
 	
 func show_answers():
 	var answers = dialog[current_question_index]["answers"]
 	
 	for a in answers:
-		var dialog_box_instantiate = dialog_box.instantiate()
-		dialog_box_instantiate.dialogText = a["text"]
-		$VBoxContainer/answeres.add_child(dialog_box_instantiate)
-		dialog_box_instantiate.display_text(a["text"])
+		var answer_instantiate = answer.instantiate()
+		answer_instantiate.buttonLabel = a["text"]
+		answer_instantiate.score = a["score"]
+		answer_instantiate.emotionalColor = a["emotionalColor"]
+		$VBoxContainer/answeres.add_child(answer_instantiate)
+		
+		#добавляем расстояние между ответами
+		var marginBetweenAnswersInstantiate = marginBetweenAnswers.instantiate()
+		$VBoxContainer/answeres.add_child(marginBetweenAnswersInstantiate)
+		#answer_instantiate.display_text(a["text"])
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -83,6 +127,7 @@ func _on_button_pressed():
 	clean_question()
 	clean_answers()
 	
-	current_question_index =+ 1
+	current_question_index = current_question_index + 1
+	print(current_question_index)
 	show_question()
-	show_answers()
+	await show_answers()

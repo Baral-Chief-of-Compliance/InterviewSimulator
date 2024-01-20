@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dso152qbhn751"]
+
+[ext_resource type="FontFile" uid="uid://but58youek45h" path="res://fonts/Montserrat-Bold.ttf" id="1_5xgb1"]
+[ext_resource type="Script" path="res://scenes/answer.gd" id="2_a1qa1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68u2e"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+shadow_size = 2
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3jtg"]
+bg_color = Color(0.411765, 0.701961, 0.905882, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+shadow_size = 2
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t62sq"]
+bg_color = Color(0.172549, 0.447059, 0.623529, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+shadow_size = 4
+
+[node name="answer" type="Button"]
+texture_filter = 1
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5xgb1")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_68u2e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u3jtg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t62sq")
+text = "Тестовое название"
+script = ExtResource("2_a1qa1")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
