@@ -35,4 +35,9 @@ visible = false
 layout_mode = 2
 text = "Далее"
 
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

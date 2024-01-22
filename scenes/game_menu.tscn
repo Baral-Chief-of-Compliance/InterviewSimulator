@@ -1,50 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://cq3rpam35p2ex"]
+[gd_scene load_steps=7 format=3 uid="uid://cq3rpam35p2ex"]
 
 [ext_resource type="Script" path="res://scenes/game_menu.gd" id="1_a4p38"]
 [ext_resource type="Texture2D" uid="uid://c3owicrnbu6ht" path="res://sprites/backroundMenu/Rabota_R_Triangle-1.png" id="1_bbsbb"]
 [ext_resource type="Shader" path="res://scenes/game_menu.gdshader" id="1_c4lbj"]
 [ext_resource type="FontFile" uid="uid://but58youek45h" path="res://fonts/Montserrat-Bold.ttf" id="2_0col1"]
+[ext_resource type="Theme" uid="uid://emwqfcq2voo7" path="res://scenes/game_menu.tres" id="4_5png2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kdv51"]
 shader = ExtResource("1_c4lbj")
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed_scale = 0.1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_in0st"]
-bg_color = Color(0.411765, 0.701961, 0.905882, 1)
-border_width_bottom = 5
-border_color = Color(0.164706, 0.431373, 0.6, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 2
-shadow_offset = Vector2(4, 4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmq1c"]
-bg_color = Color(0.411765, 0.701961, 0.905882, 1)
-border_width_bottom = 5
-border_color = Color(0.164706, 0.431373, 0.6, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 4
-shadow_offset = Vector2(2, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjvej"]
-bg_color = Color(0.411765, 0.701961, 0.905882, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 2
-shadow_offset = Vector2(4, 4)
-
-[sub_resource type="Theme" id="Theme_b0oh8"]
-Button/styles/hover = SubResource("StyleBoxFlat_in0st")
-Button/styles/normal = SubResource("StyleBoxFlat_nmq1c")
-Button/styles/pressed = SubResource("StyleBoxFlat_rjvej")
 
 [node name="GameMenu" type="CanvasLayer"]
 script = ExtResource("1_a4p38")
@@ -66,7 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_b0oh8")
+theme = ExtResource("4_5png2")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -86,9 +51,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+texture_filter = 6
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.2, 0.627451, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_0col1")
 theme_override_font_sizes/font_size = 50
 text = "Симулятор Собеседованя"

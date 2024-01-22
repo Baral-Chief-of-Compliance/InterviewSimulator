@@ -9,3 +9,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_end_game_timeout():
+	get_tree().change_scene_to_file("res://scenes/score_game.tscn")
