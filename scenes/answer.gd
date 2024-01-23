@@ -11,6 +11,8 @@ func _ready():
 func _on_pressed():
 	Globals.interviewScore = Globals.interviewScore + score
 	print(Globals.interviewScore)
+	var ScoreBar = get_tree().get_root().get_node("Game/ScoreBar")
+	ScoreBar.update_score()
 	var GameManager = get_tree().get_root().get_node("Game/GameManager")
 	GameManager.change_reaction(emotionalColor)
 	

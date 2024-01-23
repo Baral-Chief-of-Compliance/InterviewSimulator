@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhhehhu2lhap7"]
+
+[ext_resource type="Script" path="res://scenes/score_bar.gd" id="1_fokjw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_garnc"]
+bg_color = Color(0.6, 0.6, 0.6, 0.560784)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvhge"]
+bg_color = Color(0.898039, 0.282353, 0.113725, 1)
+
+[node name="ScoreBar" type="CanvasLayer"]
+script = ExtResource("1_fokjw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 32
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer"]
+custom_minimum_size = Vector2(32, 128)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_garnc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xvhge")
+fill_mode = 3

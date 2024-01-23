@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dwuk01hjwntqr"]
+[gd_scene load_steps=17 format=3 uid="uid://dwuk01hjwntqr"]
 
 [ext_resource type="Texture2D" uid="uid://cefe64xeaoyjq" path="res://sprites/backroundGame/directorOfice.jpg" id="1_g1lsw"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_qbvbt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://e1uo4r7m4v24" path="res://sprites/director/normal.png" id="5_1tsee"]
 [ext_resource type="Texture2D" uid="uid://d1bawn7y5tvwc" path="res://sprites/director/shocked.png" id="6_l64rx"]
 [ext_resource type="PackedScene" uid="uid://ta72r6k4eky2" path="res://scenes/dialog.tscn" id="8_iabpq"]
+[ext_resource type="PackedScene" uid="uid://dhhehhu2lhap7" path="res://scenes/score_bar.tscn" id="10_j04os"]
 
 [sub_resource type="Animation" id="Animation_m8kgp"]
 length = 0.001
@@ -139,6 +140,8 @@ texture = ExtResource("6_l64rx")
 
 [node name="dialog" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="ScoreBar" parent="." instance=ExtResource("10_j04os")]
 
 [node name="whitePhone" type="ColorRect" parent="."]
 anchors_preset = 15
