@@ -56,7 +56,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.2, 0.627451, 1)
 theme_override_fonts/font = ExtResource("2_0col1")
 theme_override_font_sizes/font_size = 50
-text = "Симулятор Собеседованя"
+text = "Симулятор Собеседования"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2

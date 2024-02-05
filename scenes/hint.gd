@@ -2,11 +2,9 @@ extends MarginContainer
 
 
 @onready var label = $MarginContainer/Label
-@onready var timer = $LetterDisplayTimer
-
 
 #var MAX = get_viewport().size[0]
-var MAX_WIDTH = 400
+var MAX_WIDTH = 900
 
 @export var dialogText = ""
 
@@ -35,26 +33,4 @@ func display_text(text_to_display: String):
 	#global_position.x -= size.x / 2
 	#global_position.y -= size.y + 24
 	
-	label.text = ""
-	_display_letter()
-	
-func _display_letter():
-	label.text += text[letter_index]
-	
-	letter_index += 1
-	
-	if letter_index >= text.length():
-		finished_displaying.emit()
-		return
-		
-	match text[letter_index]:
-		"!", ".", ",", "?":
-			timer.start(punctuation_time)
-		" ":
-			timer.start(space_time)
-		_:
-			timer.start(letter_time)
-
-
-func _on_letter_display_timer_timeout():
-	_display_letter()
+	label.text = text

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ta72r6k4eky2"]
+[gd_scene load_steps=5 format=3 uid="uid://ta72r6k4eky2"]
 
 [ext_resource type="Script" path="res://scenes/dialog.gd" id="1_djtbl"]
+[ext_resource type="Theme" uid="uid://emwqfcq2voo7" path="res://scenes/game_menu.tres" id="2_k6h4c"]
+[ext_resource type="Texture2D" uid="uid://6qfjjo5dk3r6" path="res://sprites/pause/pauseButton.png" id="2_nqnpv"]
+[ext_resource type="Texture2D" uid="uid://bb2jlu8xkilh1" path="res://sprites/hint/hint.png" id="3_fx647"]
 
 [node name="dialog" type="Control"]
 layout_mode = 3
@@ -18,21 +21,29 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_top = -248.0
 grow_horizontal = 2
 grow_vertical = 0
-
-[node name="question" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
 
 [node name="answeres" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
+[node name="raw1" type="HBoxContainer" parent="VBoxContainer/answeres"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="raw2" type="HBoxContainer" parent="VBoxContainer/answeres"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/answeres"]
+layout_mode = 2
+
 [node name="Button" type="Button" parent="VBoxContainer"]
 visible = false
+custom_minimum_size = Vector2(300, 30)
 layout_mode = 2
+theme = ExtResource("2_k6h4c")
 text = "Далее"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
@@ -40,4 +51,58 @@ layout_mode = 2
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_bottom = 16
 
+[node name="VBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -4.0
+offset_right = -4.0
+grow_horizontal = 0
+
+[node name="DialogSpawner" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 300
+theme_override_constants/margin_right = 128
+
+[node name="PuseButton" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer2/PuseButton"]
+layout_mode = 2
+texture_normal = ExtResource("2_nqnpv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HintButton" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="HintButton" type="TextureButton" parent="HBoxContainer/HintButton"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("3_fx647")
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/PuseButton/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/HintButton/HintButton" to="." method="_on_hint_button_pressed"]

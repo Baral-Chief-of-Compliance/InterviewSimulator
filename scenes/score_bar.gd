@@ -1,15 +1,57 @@
 extends CanvasLayer
 
 
+@export var StarReaction : PackedScene
+@export var SadReaction : PackedScene
+
+
+@onready var progressBar = $MarginContainer/HBoxContainer/ProgressBar
+@onready var StarTimer = $StarTimer
+@onready var SadTimer = $SadTimer
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MarginContainer/ProgressBar.max_value = Globals.MAX_SCORE
-	update_score()
+	progressBar.max_value = Globals.MAX_SCORE
+	progressBar.value = Globals.interviewScore
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 	
-func update_score():
-	$MarginContainer/ProgressBar.value = Globals.interviewScore
+func update_score(emotionalColor):
+	if emotionalColor == Globals.SMILE:
+		$MarginContainer/HBoxContainer/VBoxContainer/StarTurnOff.texture=ResourceLoader.load("res://sprites/scoreSymbols/star.png")
+		var _starReaction = StarReaction.instantiate()
+		_starReaction.position = $MarginContainer/HBoxContainer/VBoxContainer/StarTurnOff.global_position
+		_starReaction.emitting = true
+		$MarginContainer/HBoxContainer/VBoxContainer.add_child(_starReaction)
+		StarTimer.start()
+		
+	if emotionalColor == Globals.SHOCKED:
+		$MarginContainer/HBoxContainer/VBoxContainer/SadTurnOff.texture = ResourceLoader.load("res://sprites/scoreSymbols/sad.png")
+		var _sadReaction = SadReaction.instantiate()
+		_sadReaction.position = $MarginContainer/HBoxContainer/VBoxContainer/SadTurnOff.global_position
+		_sadReaction.emitting = true
+		$MarginContainer/HBoxContainer/VBoxContainer.add_child(_sadReaction)
+		SadTimer.start()
+		
+	progressBar.value = Globals.interviewScore
+
+
+func _on_star_timer_timeout():
+	$MarginContainer/HBoxContainer/VBoxContainer/StarTurnOff.texture=ResourceLoader.load("res://sprites/scoreSymbols/star-turn-off.png")
+
+
+func _on_sad_timer_timeout():
+	$MarginContainer/HBoxContainer/VBoxContainer/SadTurnOff.texture = ResourceLoader.load("res://sprites/scoreSymbols/sad-turn-off.png")
+
+
+	
+	
+
+
+func _on_pause_pressed():
+	var GamePause = get_tree().get_root().get_node("Game/GamePause")
+	GamePause.show()

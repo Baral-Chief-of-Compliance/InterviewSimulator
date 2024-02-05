@@ -6,9 +6,9 @@ extends CanvasLayer
 @onready var buttonNext = $Control/VBoxContainer2/MarginContainer/Button
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Globals.interviewScore < Globals.MAX_SCORE:
+	if Globals.interviewScore < Globals.MIN_SCORE:
 		label.text = "Мы вам перезвоним"
-	elif Globals.interviewScore == Globals.MAX_SCORE:
+	elif Globals.interviewScore >= Globals.MIN_SCORE and Globals.interviewScore <= Globals.MAX_SCORE:
 		label.text = "Поздравляю вы прошли собеседование"
 		$blue.show()
 		$darkblue.show()

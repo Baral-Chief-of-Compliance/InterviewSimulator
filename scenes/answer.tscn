@@ -43,15 +43,30 @@ shadow_size = 4
 
 [node name="answer" type="Button"]
 texture_filter = 1
-offset_right = 8.0
-offset_bottom = 8.0
+custom_minimum_size = Vector2(600, 60)
+offset_right = 600.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_5xgb1")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_68u2e")
 theme_override_styles/hover = SubResource("StyleBoxFlat_u3jtg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_t62sq")
-text = "Тестовое название"
 script = ExtResource("2_a1qa1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_5xgb1")
+bbcode_enabled = true
+scroll_active = false
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

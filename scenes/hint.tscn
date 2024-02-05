@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdt06s5gmkh2y"]
+
+[ext_resource type="Script" path="res://scenes/hint.gd" id="1_7x3vq"]
+[ext_resource type="Texture2D" uid="uid://bf7reolo3wgub" path="res://sprites/hint/hintBody.png" id="1_lk8ep"]
+[ext_resource type="FontFile" uid="uid://but58youek45h" path="res://fonts/Montserrat-Bold.ttf" id="2_w0yvs"]
+
+[node name="Hint" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -23.5
+offset_right = 20.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7x3vq")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_lk8ep")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_w0yvs")
+theme_override_font_sizes/font_size = 24
