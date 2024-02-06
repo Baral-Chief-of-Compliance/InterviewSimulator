@@ -1,0 +1,298 @@
+[gd_scene load_steps=6 format=3 uid="uid://b20mwrh45pg3v"]
+
+[ext_resource type="FontFile" uid="uid://but58youek45h" path="res://fonts/Montserrat-Bold.ttf" id="1_xmwh7"]
+[ext_resource type="Theme" uid="uid://emwqfcq2voo7" path="res://scenes/game_menu.tres" id="2_qgjx4"]
+
+[sub_resource type="Animation" id="Animation_71uvk"]
+resource_name = "AppearanceFirst"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/first:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/second:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/third:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/fourth:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/fifth:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/NextButton:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ohlqs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/first:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/second:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/third:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/fourth:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/fifth:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/NextButton:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aa1l0"]
+_data = {
+"AppearanceFirst": SubResource("Animation_71uvk"),
+"RESET": SubResource("Animation_ohlqs")
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -52.0
+offset_right = 300.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelForTips" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.811765, 0.270588, 0.12549, 1)
+theme_override_fonts/font = ExtResource("1_xmwh7")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="first" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(750, 60)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.2, 0.627451, 0.956863)
+theme_override_fonts/normal_font = ExtResource("1_xmwh7")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left][color=#CF4520]1.[/color] Важный момент в подготовке к собеседованию изучить информацию о компании, куда собираетесь трудоустраиваться.[/left]"
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="second" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(750, 80)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.2, 0.627451, 1)
+theme_override_fonts/normal_font = ExtResource("1_xmwh7")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left][color=#CF4520]2.[/color]  Перед собеседованием нужно отдохнуть, выспаться, чтобы иметь свежий внешний вид и излучать спокойствие и уверенность в себе.[/left]"
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="third" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(750, 60)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.2, 0.627451, 1)
+theme_override_fonts/normal_font = ExtResource("1_xmwh7")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left][color=#CF4520]3.[/color]  Уделите особое внимание внешнему виду, подберите одежду нейтральных цветов и фасона, и убедитесь в ее опрятности.[/left]"
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="fourth" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(750, 80)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.2, 0.627451, 1)
+theme_override_fonts/normal_font = ExtResource("1_xmwh7")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left][color=#CF4520]4.[/color]  Заранее изучите маршрут до выбранной организации, для того чтобы исключить опоздание, но и слишком заранее приходить не стоит.[/left]"
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="fifth" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(750, 80)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.2, 0.627451, 1)
+theme_override_fonts/normal_font = ExtResource("1_xmwh7")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[left] [color=#CF4520]5.[/color]  К подготовке самопрезентации следует отнестись очень серьезно, так как первое впечатление о человеке - самое важное при выборе кандидата на должность.[/left]"
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer6" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="NextButton" type="Button" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_qgjx4")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_xmwh7")
+theme_override_font_sizes/font_size = 20
+text = "Спасибо за советы!"
+
+[node name="AppearanceFirst" type="AnimationPlayer" parent="."]
+autoplay = "AppearanceFirst"
+libraries = {
+"": SubResource("AnimationLibrary_aa1l0")
+}

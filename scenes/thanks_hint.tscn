@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://6ahkd25sfh43"]
+[gd_scene load_steps=4 format=3 uid="uid://6ahkd25sfh43"]
 
 [ext_resource type="Theme" uid="uid://emwqfcq2voo7" path="res://scenes/game_menu.tres" id="1_c1psa"]
+[ext_resource type="FontFile" uid="uid://but58youek45h" path="res://fonts/Montserrat-Bold.ttf" id="2_30ybj"]
 [ext_resource type="Script" path="res://scenes/thanks_hint.gd" id="2_amtiv"]
 
 [node name="ThanksHint" type="Button"]
-custom_minimum_size = Vector2(300, 30)
+custom_minimum_size = Vector2(300, 50)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -17,6 +18,9 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_c1psa")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_30ybj")
+theme_override_font_sizes/font_size = 20
 text = "Спасибо за совет!"
 script = ExtResource("2_amtiv")
 

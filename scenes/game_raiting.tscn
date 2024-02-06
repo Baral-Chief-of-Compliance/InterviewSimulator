@@ -122,7 +122,7 @@ size_flags_vertical = 0
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.282353, 0.603922, 1)
 theme_override_fonts/font = ExtResource("1_4aefj")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 50
 text = "Оцените наш сервис!"
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer2"]
@@ -140,7 +140,7 @@ theme = SubResource("Theme_3fb2w")
 
 [node name="one" type="Button" parent="Control/MarginContainer/VBoxContainer2/score/HBoxContainer"]
 texture_filter = 1
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(150, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_4aefj")
@@ -214,12 +214,12 @@ size_flags_horizontal = 4
 
 [node name="ButtonNext" type="Button" parent="Control/MarginContainer/VBoxContainer2/VBoxContainer2"]
 visible = false
-custom_minimum_size = Vector2(300, 30)
+custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme = ExtResource("3_3t3hu")
 theme_override_colors/font_color = Color(0.94902, 0.94902, 0.94902, 1)
 theme_override_fonts/font = ExtResource("1_4aefj")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 text = "Отправить оценку"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
