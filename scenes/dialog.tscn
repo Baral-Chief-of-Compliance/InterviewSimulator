@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://emwqfcq2voo7" path="res://scenes/game_menu.tres" id="2_k6h4c"]
 [ext_resource type="Texture2D" uid="uid://6qfjjo5dk3r6" path="res://sprites/pause/pauseButton.png" id="2_nqnpv"]
 [ext_resource type="FontFile" uid="uid://but58youek45h" path="res://fonts/Montserrat-Bold.ttf" id="3_75luu"]
-[ext_resource type="Texture2D" uid="uid://bb2jlu8xkilh1" path="res://sprites/hint/hint.png" id="3_fx647"]
+[ext_resource type="Texture2D" uid="uid://jtv8eahanfa0" path="res://sprites/hint/hintsNew.png" id="5_8g44n"]
 
 [node name="dialog" type="Control"]
 layout_mode = 3
@@ -105,7 +105,7 @@ theme_override_constants/margin_bottom = 64
 visible = false
 texture_filter = 1
 layout_mode = 2
-texture_normal = ExtResource("3_fx647")
+texture_normal = ExtResource("5_8g44n")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/PuseButton/TextureButton" to="." method="_on_texture_button_pressed"]
