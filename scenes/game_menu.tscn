@@ -56,7 +56,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.2, 0.627451, 1)
 theme_override_fonts/font = ExtResource("2_0col1")
 theme_override_font_sizes/font_size = 50
-text = "Симулятор Собеседования"
+text = "СОБЕСЕДКА"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -67,11 +67,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Play" type="Button" parent="Control/MarginContainer/VBoxContainer/buttons"]
-custom_minimum_size = Vector2(300, 30)
+custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_0col1")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 20
 text = "Пройти собеседование"
 
 [node name="MarginContainer3" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/buttons"]
@@ -80,11 +80,11 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="Exit" type="Button" parent="Control/MarginContainer/VBoxContainer/buttons"]
-custom_minimum_size = Vector2(300, 30)
+custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_0col1")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 20
 text = "Выйти"
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/buttons/Play" to="." method="_on_play_pressed"]
