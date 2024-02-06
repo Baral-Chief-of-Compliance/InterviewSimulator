@@ -16,7 +16,7 @@ func _ready():
 	$RichTextLabel.text = "[center] %s [/center]" % buttonLabel
 	
 func _on_pressed():
-	if emotionalColor == Globals.SHOCKED:
+	if emotionalColor == Globals.SHOCKED or emotionalColor == Globals.SAD:
 		
 		var dialog = get_tree().get_root().get_node("Game/dialog")
 		

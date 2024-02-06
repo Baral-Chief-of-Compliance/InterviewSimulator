@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dso152qbhn751"]
+[gd_scene load_steps=7 format=3 uid="uid://dso152qbhn751"]
 
 [ext_resource type="FontFile" uid="uid://but58youek45h" path="res://fonts/Montserrat-Bold.ttf" id="1_5xgb1"]
 [ext_resource type="Script" path="res://scenes/answer.gd" id="2_a1qa1"]
@@ -41,6 +41,8 @@ expand_margin_right = 8.0
 expand_margin_bottom = 8.0
 shadow_size = 4
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_afbcd"]
+
 [node name="answer" type="Button"]
 texture_filter = 1
 custom_minimum_size = Vector2(600, 60)
@@ -54,6 +56,7 @@ theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_68u2e")
 theme_override_styles/hover = SubResource("StyleBoxFlat_u3jtg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_t62sq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_afbcd")
 script = ExtResource("2_a1qa1")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

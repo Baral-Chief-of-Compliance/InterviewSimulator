@@ -29,7 +29,7 @@ func update_score(emotionalColor):
 		$MarginContainer/HBoxContainer/VBoxContainer.add_child(_starReaction)
 		StarTimer.start()
 		
-	if emotionalColor == Globals.SHOCKED:
+	if emotionalColor == Globals.SHOCKED or emotionalColor == Globals.SAD:
 		$MarginContainer/HBoxContainer/VBoxContainer/SadTurnOff.texture = ResourceLoader.load("res://sprites/scoreSymbols/sad.png")
 		var _sadReaction = SadReaction.instantiate()
 		_sadReaction.position = $MarginContainer/HBoxContainer/VBoxContainer/SadTurnOff.global_position

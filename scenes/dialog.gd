@@ -673,7 +673,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	QuestionPoint.add_theme_constant_override("margin_top", 1000)
 	
 
 func clean_question():
@@ -726,8 +726,6 @@ func _on_hint_button_pressed():
 	
 	hint_instantiate.display_text(hint)
 	HintsStorage_instantiate.add_child(ThanksForHint_instantiate)
-
-
 
 
 	
