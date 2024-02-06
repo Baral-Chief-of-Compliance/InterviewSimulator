@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b20mwrh45pg3v"]
+[gd_scene load_steps=7 format=3 uid="uid://b20mwrh45pg3v"]
 
+[ext_resource type="Script" path="res://scenes/finalHints.gd" id="1_i1liq"]
 [ext_resource type="FontFile" uid="uid://but58youek45h" path="res://fonts/Montserrat-Bold.ttf" id="1_xmwh7"]
 [ext_resource type="Theme" uid="uid://emwqfcq2voo7" path="res://scenes/game_menu.tres" id="2_qgjx4"]
 
@@ -161,6 +162,7 @@ _data = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_i1liq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -296,3 +298,5 @@ autoplay = "AppearanceFirst"
 libraries = {
 "": SubResource("AnimationLibrary_aa1l0")
 }
+
+[connection signal="pressed" from="VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
