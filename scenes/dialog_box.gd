@@ -6,7 +6,7 @@ extends MarginContainer
 
 
 #var MAX = get_viewport().size[0]
-var MAX_WIDTH = 400
+var MAX_WIDTH = 500
 
 @export var dialogText = ""
 

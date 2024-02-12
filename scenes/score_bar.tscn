@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhhehhu2lhap7"]
+[gd_scene load_steps=11 format=3 uid="uid://dhhehhu2lhap7"]
 
 [ext_resource type="Script" path="res://scenes/score_bar.gd" id="1_fokjw"]
 [ext_resource type="PackedScene" uid="uid://bepavej73rlt1" path="res://scenes/star_reaction.tscn" id="2_llkdd"]
 [ext_resource type="FontFile" uid="uid://but58youek45h" path="res://fonts/Montserrat-Bold.ttf" id="2_t3ifv"]
 [ext_resource type="Texture2D" uid="uid://bd3bo0ladhlcw" path="res://sprites/scoreSymbols/star-turn-off.png" id="3_8pxlt"]
 [ext_resource type="PackedScene" uid="uid://cmbu4lu3e3uef" path="res://scenes/sad_reaction.tscn" id="3_ekhqt"]
-[ext_resource type="Texture2D" uid="uid://wdxr506rf42k" path="res://sprites/scoreSymbols/sad-turn-off.png" id="5_a1cjx"]
+[ext_resource type="PackedScene" uid="uid://8jtilshdtcna" path="res://scenes/good_reaction.tscn" id="4_b57sq"]
+[ext_resource type="Texture2D" uid="uid://c54ptwwf1dfal" path="res://sprites/scoreSymbols/GoodSmile2TurnOff.png" id="6_yf1ff"]
+[ext_resource type="Texture2D" uid="uid://vyj3c8hmauu1" path="res://sprites/scoreSymbols/SadSmile2TurnOff.png" id="7_j5gc6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_garnc"]
 bg_color = Color(0.6, 0.6, 0.6, 0.560784)
@@ -17,6 +19,7 @@ bg_color = Color(0.898039, 0.282353, 0.113725, 1)
 script = ExtResource("1_fokjw")
 StarReaction = ExtResource("2_llkdd")
 SadReaction = ExtResource("3_ekhqt")
+GoodReaction = ExtResource("4_b57sq")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -37,7 +40,7 @@ layout_mode = 2
 
 [node name="StarTurnOff" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 texture_filter = 1
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -48,21 +51,42 @@ layout_mode = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="SadTurnOff" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="GoodTurnOff" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 texture_filter = 1
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("5_a1cjx")
+texture = ExtResource("6_yf1ff")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="SadTurnOff" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_j5gc6")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 4
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(256, 32)
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(350, 40)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -79,5 +103,10 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="GoodTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="StarTimer" to="." method="_on_star_timer_timeout"]
 [connection signal="timeout" from="SadTimer" to="." method="_on_sad_timer_timeout"]
+[connection signal="timeout" from="GoodTimer" to="." method="_on_good_timer_timeout"]

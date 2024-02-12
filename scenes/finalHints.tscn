@@ -197,11 +197,11 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="first" type="RichTextLabel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(750, 60)
+custom_minimum_size = Vector2(750, 100)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.2, 0.627451, 0.956863)
 theme_override_fonts/normal_font = ExtResource("1_xmwh7")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[left][color=#CF4520]1.[/color] Важный момент в подготовке к собеседованию изучить информацию о компании, куда собираетесь трудоустраиваться.[/left]"
 scroll_active = false
@@ -214,11 +214,11 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="second" type="RichTextLabel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(750, 80)
+custom_minimum_size = Vector2(750, 100)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.2, 0.627451, 1)
 theme_override_fonts/normal_font = ExtResource("1_xmwh7")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[left][color=#CF4520]2.[/color]  Перед собеседованием нужно отдохнуть, выспаться, чтобы иметь свежий внешний вид и излучать спокойствие и уверенность в себе.[/left]"
 scroll_active = false
@@ -231,11 +231,11 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="third" type="RichTextLabel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(750, 60)
+custom_minimum_size = Vector2(750, 100)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.2, 0.627451, 1)
 theme_override_fonts/normal_font = ExtResource("1_xmwh7")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[left][color=#CF4520]3.[/color]  Уделите особое внимание внешнему виду, подберите одежду нейтральных цветов и фасона, и убедитесь в ее опрятности.[/left]"
 scroll_active = false
@@ -248,11 +248,11 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="fourth" type="RichTextLabel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(750, 80)
+custom_minimum_size = Vector2(750, 100)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.2, 0.627451, 1)
 theme_override_fonts/normal_font = ExtResource("1_xmwh7")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[left][color=#CF4520]4.[/color]  Заранее изучите маршрут до выбранной организации, для того чтобы исключить опоздание, но и слишком заранее приходить не стоит.[/left]"
 scroll_active = false
@@ -265,11 +265,11 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="fifth" type="RichTextLabel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(750, 80)
+custom_minimum_size = Vector2(750, 100)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.2, 0.627451, 1)
 theme_override_fonts/normal_font = ExtResource("1_xmwh7")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[left] [color=#CF4520]5.[/color]  К подготовке самопрезентации следует отнестись очень серьезно, так как первое впечатление о человеке - самое важное при выборе кандидата на должность.[/left]"
 scroll_active = false

@@ -14,12 +14,11 @@ extends Control
 
 
 @onready var QuestionPoint = $VBoxContainer2/DialogSpawner
-
 @onready var HintButton = $HBoxContainer/HintButton/HintButton
 
 
 #Hints - Советы
-@onready var HintPosition = $HintPosition
+#@onready var HintPosition = $HintPosition
 @onready var BackGroundHint = preload("res://scenes/hint_background.tscn")
 @onready var ThanksForHint = preload("res://scenes/thanks_hint.tscn")
 @onready var HintsStorage = preload("res://scenes/hints_storage.tscn")
@@ -31,7 +30,7 @@ var current_question = {}
 var dialog = [
 	#ВСТУПЛЕНИЕ
 	{	
-		"question": "Здравствуйте! Меня зовут Александра и директор этой компании. И буду вас собеседовать.",
+		"question": "Здравствуйте! Меня зовут Александра, я директор этой компании. Вы готовы ответить на мои вопросы?",
 		"answers" : []
 	},
 	#1-ый вопрос
@@ -40,24 +39,24 @@ var dialog = [
 		"recomendation": "В рассказе о себе лучше использовать информацию, связанную с профессиональной деятельностью, чем личные данные. Работодатель хочет в первую очередь услышать о вас, как о специалисте, о том, как складывалась ваша карьерная траектория, о ваших удачах и профессиональных достижениях.",
 		"answers": [
 			{
-				"text": "Перескажу основные пункты из резюме",
+				"text": "\nПерескажу основные пункты из резюме",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
 			{
-				"text": "Расскажу о прошлой работе и пройденном обучении",
+				"text": "\nРасскажу о прошлой работе и пройденном обучении",
 				"score": Globals.DELIGHTED_SCORE,
 				"emotionalColor" : Globals.DELIGHTED
 			},
 		
 			{
-				"text": "Расскажу о своих профессиональных умениях и навыках",
+				"text": "\nРасскажу о своих профессиональных умениях и навыках",
 				"score": Globals.SMILE_SCORE,
 				"emotionalColor" : Globals.SMILE
 			},
 			
 			{
-				"text": "Мне нечего о себе рассказать. Нужно быть скромнее",
+				"text": "\nМне нечего о себе рассказать. Нужно быть скромнее",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},
@@ -69,18 +68,18 @@ var dialog = [
 		"recomendation": "Причины, по которым вы ищете новую работу, могут быть разными, но не стоит забывать, что важно оставаться в хороших отношениях, даже если вы ушли из-за разногласий. Не стоит говорить плохо о бывших коллегах и, конечно же, о том, что вы не справлялись с работой или совмещением.",
 		"answers": [
 			{
-				"text": "Решил сменить сферу деятельности",
+				"text": "\nРешил сменить сферу деятельности",
 				"score": Globals.DELIGHTED_SCORE,
 				"emotionalColor" : Globals.DELIGHTED
 			},
 			{
-				"text": "Не смог найти общий язык с руководством и коллегами",
+				"text": "\nНе смог найти общий язык с руководством и коллегами",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
 			
 			{
-				"text": "Работа была слишком нервная, а требования невыполнимыми",
+				"text": "\nРабота была слишком нервная, а требования невыполнимыми",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},
@@ -98,7 +97,7 @@ var dialog = [
 		"recomendation": "Важно подчеркнуть, что частая смена работы была вызвана не легкомысленностью или конфликтностью, чтобы у работодателя не сложилось мнение, что Вы также сможете быстро уйти из-за малейших трудностей.",
 		"answers": [
 			{
-				"text": "Мне стало скучно",
+				"text": "\nМне стало скучно",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
@@ -126,7 +125,7 @@ var dialog = [
 		"recomendation": "У каждого человека есть недостатки, поэтому не стоит говорить, что у Вас нет слабых сторон. Подумайте, какие отрицательные качества присущи вам. Главное здесь – упомянуть реальную слабость, но не то, что может помешать вам выполнять свою работу. Также полезно упомянуть, как вы работаете над преодолением этой слабости и пониманием того, как она негативно влияет на вас.",
 		"answers": [
 			{
-				"text": "У меня нет слабых сторон",
+				"text": "\nУ меня нет слабых сторон",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
@@ -141,7 +140,7 @@ var dialog = [
 				"emotionalColor" : Globals.DELIGHTED
 			},
 			{
-				"text": "Часто опаздываю, иногда забываю о поручениях",
+				"text": "\nЧасто опаздываю, иногда забываю о поручениях",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},
@@ -158,7 +157,7 @@ var dialog = [
 				"emotionalColor" : Globals.SHOCKED
 			},
 			{
-				"text": "Вы первые, кто наконец-то пригласил меня на собеседование",
+				"text": "\nВы первые, кто наконец-то пригласил меня на собеседование",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},
@@ -168,7 +167,7 @@ var dialog = [
 				"emotionalColor" : Globals.SMILE
 			},		
 			{
-				"text": "Меня заинтересовали ценности и репутация вашей компании",
+				"text": "\nМеня заинтересовали ценности и репутация вашей компании",
 				"score": Globals.DELIGHTED_SCORE,
 				"emotionalColor" : Globals.DELIGHTED
 			},	
@@ -180,17 +179,17 @@ var dialog = [
 		"recomendation": "Хотя на первый взгляд это может показаться простым вопросом, вы должны использовать любую возможность, чтобы продемонстрировать свой интерес к компании. Даже если вы не обновляли постоянно сайт компании для поиска вакансий, сделайте так, чтобы это выглядело так. Расскажите, что вас волнует в этой вакансии или что именно привлекло ваше внимание.",
 		"answers": [
 			{
-				"text": "Совершенно случайно, вот решил сходить к вам",
+				"text": "\nСовершенно случайно, вот решил сходить к вам",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
 			{
-				"text": "Я целенаправленно искал такую работу и поэтому я здесь",
+				"text": "\nЯ целенаправленно искал такую работу и поэтому я здесь",
 				"score": Globals.SMILE_SCORE,
 				"emotionalColor" : Globals.SMILE
 			},	
 			{
-				"text": "Ждал давно, когда появится вакансия в вашей организации",
+				"text": "\nЖдал давно, когда появится вакансия в вашей организации",
 				"score": Globals.SMILE_SCORE,
 				"emotionalColor" : Globals.SMILE
 			},	
@@ -207,7 +206,7 @@ var dialog = [
 		"recomendation": "Если Вы скажете, что не рассматриваете другие организации, может показаться, что у вас нет других вариантов для трудоустройства и вы не конкурентоспособны. Важно отметить поиск конкретной профессии – это укажет будущему работодателю, что Вы целеустремленный человек и знаете что ищете.",
 		"answers": [
 			{
-				"text": "Нет, рассматриваю только Вашу организацию",
+				"text": "\nНет, рассматриваю только Вашу организацию",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
@@ -217,7 +216,7 @@ var dialog = [
 				"emotionalColor" : Globals.SMILE
 			},	
 			{
-				"text": "Постоянно посещаю разные собеседования на разные должности",
+				"text": "\nПостоянно посещаю разные собеседования на разные должности",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},
@@ -234,7 +233,7 @@ var dialog = [
 		"recomendation": "Работодатель, безусловно, хочет видеть, что Вы здесь неслучайно. Эмпирическое правило заключается в том, чтобы перед собеседованием нужно навести справку об организации, в которую Вы идете трудоустраиваться.",
 		"answers": [
 			{
-				"text": "Я ничего не знаю. Может, Вы мне расскажите?",
+				"text": "\nЯ ничего не знаю. Может, Вы мне расскажите?",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},	
@@ -244,12 +243,12 @@ var dialog = [
 				"emotionalColor" : Globals.SMILE
 			},
 			{
-				"text": "Я знаю, что вы одна из крупных компаний в сфере Х в нашем регионе. Информация о вас часто появляется в новостях. Я читал, что вы …",
+				"text": "Я знаю, что Вы одна из крупных компаний в сфере Х в нашем регионе. Информация о вас часто появляется в новостях. Я читал, что Вы …",
 				"score": Globals.SMILE_SCORE,
 				"emotionalColor" : Globals.SMILE
 			},
 			{
-				"text": "У меня здесь друг работает, он говорит, что здесь хорошо платят",
+				"text": "\nУ меня здесь друг работает, он говорит, что здесь хорошо платят",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},							
@@ -261,17 +260,17 @@ var dialog = [
 		"recomendation": "Грамотный специалист быстро осваивается на новом месте работы, составляет план и приступает к выполнению задач, умеет разглядеть перспективы роста, ставит перед собой конкретные цели, а не строит «замки из песка»",
 		"answers": [
 			{
-				"text": "Я изучу цели, задачи и планы, познакомлюсь с коллегами",
+				"text": "\nЯ изучу цели, задачи и планы, познакомлюсь с коллегами",
 				"score": Globals.DELIGHTED_SCORE,
 				"emotionalColor" : Globals.DELIGHTED
 			},
 			{
-				"text": "Буду адаптироваться на новом рабочем месте",
+				"text": "\nБуду адаптироваться на новом рабочем месте",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},
 			{
-				"text": "Приведу к головокружительному успеху вашу организацию",
+				"text": "\nПриведу к головокружительному успеху вашу организацию",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},	
@@ -289,7 +288,7 @@ var dialog = [
 		"recomendation": "При ответе на данный вопрос категорически нельзя говорить что-то негативное о компании или принижать других кандидатов. Причины должны быть конструктивными и логически обоснованными.",
 		"answers": [
 			{
-				"text": "Я гораздо умнее, чем все мои коллеги",
+				"text": "\nЯ гораздо умнее, чем все мои коллеги",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
@@ -304,7 +303,7 @@ var dialog = [
 				"emotionalColor" : Globals.SMILE
 			},	
 			{
-				"text": "Вы неправильно работаете, я смогу сделать все как надо",
+				"text": "\nВы неправильно работаете, я смогу сделать все как надо",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},
@@ -316,7 +315,7 @@ var dialog = [
 		"recomendation": "Важно не просто назвать размер желаемой зарплаты, но и обосновать его. А для этого необходимо изучить рынок труда, оценить свои способности, узнать, сколько платят людям на аналогичной позиции в вашем городе/регионе",
 		"answers": [
 			{
-				"text": "Чем больше, тем лучше, я недавно взял ипотеку/кредит",
+				"text": "\nЧем больше, тем лучше, я недавно взял ипотеку/кредит",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
@@ -326,7 +325,7 @@ var dialog = [
 				"emotionalColor" : Globals.SAD
 			},
 			{
-				"text": "Среднюю зарплату на аналогичной должности в моем городе",
+				"text": "\nСреднюю зарплату на аналогичной должности в моем городе",
 				"score": Globals.DELIGHTED_SCORE,
 				"emotionalColor" : Globals.DELIGHTED
 			},
@@ -344,12 +343,12 @@ var dialog = [
 		"recomendation": "При ответе нужно быть как можно более конкретным, без расплывчатых формулировок, но не быть непоколебимым. Для руководителя важно знать, что вы будете стремиться работать в интересах компании и развивать сам. Нельзя говорить, что в долгосрочной",
 		"answers": [
 			{
-				"text": "Надеюсь, что буду работать на той же должности",
+				"text": "\nНадеюсь, что буду работать на той же должности",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},
 			{
-				"text": "Сам стану руководителем, буду сидеть в Вашем кресле!",
+				"text": "\nСам стану руководителем, буду сидеть в Вашем кресле!",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
@@ -359,7 +358,7 @@ var dialog = [
 				"emotionalColor" : Globals.SMILE
 			},
 			{
-				"text": "Надеюсь на карьерный рост и высокую зарплату",
+				"text": "\nНадеюсь на карьерный рост и высокую зарплату",
 				"score": Globals.DELIGHTED_SCORE,
 				"emotionalColor" : Globals.DELIGHTED
 			},
@@ -371,7 +370,7 @@ var dialog = [
 		"recomendation": "Задавая этот вопрос работодатель желает узнать о ваших профессиональных достижениях. Они должны иметь прямое отношение к должности, на которую Вы претендуете. При ответе оперируйте фактами и цифрами, вносите больше конкретики.",
 		"answers": [
 			{
-				"text": "Путешествия по миру",
+				"text": "\nПутешествия по миру",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},
@@ -381,12 +380,12 @@ var dialog = [
 				"emotionalColor" : Globals.SMILE
 			},
 			{
-				"text": "Не знаю. У меня нет особых достижений",
+				"text": "\nНе знаю. У меня нет особых достижений",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
 			{
-				"text": "Я хорошо выполнял обязанности на предыдущей работе",
+				"text": "\nЯ хорошо выполнял обязанности на предыдущей работе",
 				"score": Globals.DELIGHTED_SCORE,
 				"emotionalColor" : Globals.DELIGHTED
 			}
@@ -399,17 +398,17 @@ var dialog = [
 		"recomendation": "Любой нелестный комментарий может сыграть против Вас. Но и чрезмерно «сладко» рассказывать тоже нежелательно. Ищите золотую середину. Просто отметьте, что атмосфера была дружелюбной. Если захотите рассказать подробнее, отметьте пару приятных вещей",
 		"answers": [
 			{
-				"text": "Конфликтный коллектив и несправедливое начальство",
+				"text": "\nКонфликтный коллектив и несправедливое начальство",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},
 			{
-				"text": "Идеальное место работы, работал бы без выходных",
+				"text": "\nИдеальное место работы, работал бы без выходных",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
 			{
-				"text": "Начальник давал адекватную обратную связь сотрудникам",
+				"text": "\nНачальник давал адекватную обратную связь сотрудникам",
 				"score": Globals.DELIGHTED_SCORE,
 				"emotionalColor" : Globals.DELIGHTED
 			},
@@ -433,7 +432,7 @@ var dialog = [
 				"emotionalColor" : Globals.SAD
 			},
 			{
-				"text": "Редко получалось выполнять сложные задачи",
+				"text": "\nРедко получалось выполнять сложные задачи",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
@@ -466,12 +465,12 @@ var dialog = [
 				"emotionalColor" : Globals.SAD
 			},
 			{
-				"text": "Да, если организация оплачивает мне обучение",
+				"text": "\nДа, если организация оплачивает мне обучение",
 				"score": Globals.DELIGHTED_SCORE,
 				"emotionalColor" : Globals.DELIGHTED
 			},
 			{
-				"text": "Это ни к чему, я и так все умею",
+				"text": "\nЭто ни к чему, я и так все умею",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
@@ -484,7 +483,7 @@ var dialog = [
 		"recomendation": "Грамотный специалист не ждет планерок, он умеет структурировать свое время, планировать, расставлять задачи в приоритетном порядке и самостоятельно принимать решения",
 		"answers": [
 			{
-				"text": "Начинаю день с чашечки кофе, чтобы настроиться на работу",
+				"text": "\nНачинаю день с чашечки кофе, чтобы настроиться на работу",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
@@ -494,7 +493,7 @@ var dialog = [
 				"emotionalColor" : Globals.SMILE
 			},
 			{
-				"text": "Жду планерки, когда нам поступят задачи от руководителя",
+				"text": "\nЖду планерки, когда нам поступят задачи от руководителя",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},
@@ -517,12 +516,12 @@ var dialog = [
 				"emotionalColor" : Globals.SMILE
 			},
 			{
-				"text": "Нет, для меня это неприемлемо",
+				"text": "\nНет, для меня это неприемлемо",
 				"score": Globals.DELIGHTED_SCORE,
 				"emotionalColor" : Globals.DELIGHTED
 			},
 			{
-				"text": "Да, готов, если за это будет дополнительная оплата",
+				"text": "\nДа, готов, если за это будет дополнительная оплата",
 				"score": Globals.NORMAl_SCORE,
 				"emotionalColor" : Globals.NORMAL
 			},
@@ -540,22 +539,22 @@ var dialog = [
 		"recomendation": "Озвучивать стоит только то, что приближает вас к получению должности.Будет дополнительным плюсом, если Ваше хобби совпадает с ценностями компании. Поэтому нужно заранее попытаться собрать о компании максимум информации, чтобы должным образом подготовиться.",
 		"answers": [
 			{
-				"text": "Ничем не увлекаюсь, в свободное время смотрю телевизор",
+				"text": "\nНичем не увлекаюсь, в свободное время смотрю телевизор",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},
 			{
-				"text": "Играю в компьютерные игры, могу всю ночь играть",
+				"text": "\nИграю в компьютерные игры, могу всю ночь играть",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
 			{
-				"text": "Занимаюсь творчеством",
+				"text": "\nЗанимаюсь творчеством",
 				"score": Globals.SMILE_SCORE,
 				"emotionalColor" : Globals.SMILE
 			},
 			{
-				"text": "Занимаюсь спортом",
+				"text": "\nЗанимаюсь спортом",
 				"score": Globals.SMILE_SCORE,
 				"emotionalColor" : Globals.SMILE
 			},
@@ -569,12 +568,12 @@ var dialog = [
 		"recomendation": "Покажите, что вы действительно заинтересованы в этой работе, и вы действительно хотите больше узнать обо всех тонкостях этого места. Не стоит сразу переходить к вопросам о соцпакете и зарплате, чтобы не сложилось впечатление, что Вы пришли исключительно за ними.",
 		"answers": [
 			{
-				"text": "У меня нет вопросов",
+				"text": "\nУ меня нет вопросов",
 				"score": Globals.SAD_SCORE,
 				"emotionalColor" : Globals.SAD
 			},
 			{
-				"text": "Какой соцпакет предоставляете?",
+				"text": "\nКакой соцпакет предоставляете?",
 				"score": Globals.SHOCKED_SCORE,
 				"emotionalColor" : Globals.SHOCKED
 			},
@@ -584,7 +583,7 @@ var dialog = [
 				"emotionalColor" : Globals.SMILE
 			},
 			{
-				"text": "Расскажите подробнее об обязанностях на этой должности",
+				"text": "\nРасскажите подробнее об обязанностях на этой должности",
 				"score": Globals.SMILE_SCORE,
 				"emotionalColor" : Globals.SMILE
 			},
@@ -593,7 +592,7 @@ var dialog = [
 	
 	#Окончания собеседования
 	{	
-		"question": "Спасибо, что пришли на собеседование! О результатах вам мы сообщим позже",
+		"question": "Спасибо, что пришли на собеседование! О его результатах мы сообщим позже",
 		"answers" : []
 	}
 ]
@@ -617,6 +616,8 @@ func show_question():
 		#$VBoxContainer/answeres.add_child(marginBetweenAnswersInstantiate)
 		
 		if current_question["answers"] == []:
+			if current_question_index == 0:
+				$VBoxContainer/Button.text = "Готов"
 			$VBoxContainer/Button.show()
 		else:
 			$VBoxContainer/Button.hide()
@@ -673,7 +674,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	QuestionPoint.add_theme_constant_override("margin_top", 1000)
+	var size = DisplayServer.screen_get_size()
+	var _width = size[0]
+	var _height = size[1]
+	QuestionPoint.add_theme_constant_override("margin_top", _height * 0.4)
+	QuestionPoint.add_theme_constant_override("margin_right", _width * 0.067)
+	#pass
 	
 
 func clean_question():

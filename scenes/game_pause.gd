@@ -16,6 +16,7 @@ func _on_continue_pressed():
 
 
 func _on_menu_pressed():
+	Globals.interviewScore = 0
 	get_tree().change_scene_to_file("res://scenes/game_menu.tscn")
 	
 #func _input(event):

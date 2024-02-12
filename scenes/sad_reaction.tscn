@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmbu4lu3e3uef"]
+[gd_scene load_steps=7 format=3 uid="uid://cmbu4lu3e3uef"]
+
+[ext_resource type="Texture2D" uid="uid://dcbyarous46ve" path="res://sprites/scoreSymbols/SadSmile2.png" id="1_rgklr"]
 
 [sub_resource type="Gradient" id="Gradient_44ktc"]
 offsets = PackedFloat32Array(0.504065, 1)
@@ -20,19 +22,21 @@ lifetime_randomness = 0.5
 particle_flag_disable_z = true
 spread = 180.0
 gravity = Vector3(0, 0, 0)
+initial_velocity_min = 250.0
 initial_velocity_max = 500.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-scale_min = 30.0
-scale_max = 30.0
+scale_min = 5.0
+scale_max = 5.0
 scale_curve = SubResource("CurveTexture_o134n")
 color_ramp = SubResource("GradientTexture1D_rjeds")
 
 [node name="SadReaction" type="GPUParticles2D"]
-self_modulate = Color(0.129412, 0.588235, 0.952941, 1)
+texture_filter = 1
 emitting = false
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_cgpec")
+texture = ExtResource("1_rgklr")
 lifetime = 4.0
 one_shot = true
 explosiveness = 1.0

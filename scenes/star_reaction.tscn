@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bepavej73rlt1"]
+[gd_scene load_steps=7 format=3 uid="uid://bepavej73rlt1"]
+
+[ext_resource type="Texture2D" uid="uid://bmrc87vcwukm0" path="res://sprites/scoreSymbols/star.png" id="1_jh5gv"]
 
 [sub_resource type="Gradient" id="Gradient_r3l3c"]
 colors = PackedColorArray(0.977937, 0.977937, 0.977937, 1, 1, 1, 1, 0)
@@ -24,16 +26,17 @@ initial_velocity_min = 250.0
 initial_velocity_max = 505.62
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-scale_min = 30.0
-scale_max = 30.0
+scale_min = 5.0
+scale_max = 5.0
 scale_curve = SubResource("CurveTexture_wyujb")
 color_ramp = SubResource("GradientTexture1D_2lvsw")
 
 [node name="StarReaction" type="GPUParticles2D"]
-self_modulate = Color(0.952941, 0.784314, 0.0627451, 1)
+texture_filter = 1
 emitting = false
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_8gjqn")
+texture = ExtResource("1_jh5gv")
 lifetime = 4.0
 one_shot = true
 explosiveness = 1.0

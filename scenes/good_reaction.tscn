@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://8jtilshdtcna"]
+
+[ext_resource type="Texture2D" uid="uid://b8eqtp5gnmuf4" path="res://sprites/scoreSymbols/GoodSmile2.png" id="1_iwed0"]
+
+[sub_resource type="Curve" id="Curve_lxr4h"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_y1kd2"]
+width = 2048
+curve = SubResource("Curve_lxr4h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v54sf"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 250.0
+initial_velocity_max = 500.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_y1kd2")
+
+[node name="GoodReaction" type="GPUParticles2D"]
+texture_filter = 1
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_v54sf")
+texture = ExtResource("1_iwed0")
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-256, -256, 512, 512)

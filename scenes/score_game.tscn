@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7tk7rsiltntg"]
+[gd_scene load_steps=16 format=3 uid="uid://c7tk7rsiltntg"]
 
 [ext_resource type="Script" path="res://scenes/score_game.gd" id="1_la05d"]
 [ext_resource type="FontFile" uid="uid://but58youek45h" path="res://fonts/Montserrat-Bold.ttf" id="1_wt6sv"]
+[ext_resource type="PackedScene" uid="uid://bepavej73rlt1" path="res://scenes/star_reaction.tscn" id="2_nf2vt"]
+[ext_resource type="PackedScene" uid="uid://cmbu4lu3e3uef" path="res://scenes/sad_reaction.tscn" id="3_ei3jb"]
 [ext_resource type="Theme" uid="uid://emwqfcq2voo7" path="res://scenes/game_menu.tres" id="3_kkqa8"]
 [ext_resource type="PackedScene" uid="uid://d0cfwolvq2pnh" path="res://scenes/hint_background.tscn" id="4_juws7"]
 [ext_resource type="PackedScene" uid="uid://c3dtygccariif" path="res://scenes/hints_storage.tscn" id="5_0lhpr"]
@@ -83,6 +85,8 @@ _data = {
 
 [node name="score_game" type="CanvasLayer"]
 script = ExtResource("1_la05d")
+StarReaction = ExtResource("2_nf2vt")
+SadReaction = ExtResource("3_ei3jb")
 
 [node name="Backround" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -113,7 +117,22 @@ layout_mode = 2
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_right = 64
 
-[node name="Label" type="Label" parent="Control/VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="Control/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.054902, 0.32549, 0.627451, 1)
+theme_override_fonts/font = ExtResource("1_wt6sv")
+theme_override_font_sizes/font_size = 70
+horizontal_alignment = 1
+
+[node name="ReactionPoint" type="Control" parent="Control/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Result" type="Label" parent="Control/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.054902, 0.32549, 0.627451, 1)
 theme_override_fonts/font = ExtResource("1_wt6sv")
