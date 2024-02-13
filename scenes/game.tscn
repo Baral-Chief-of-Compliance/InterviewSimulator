@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dwuk01hjwntqr"]
+[gd_scene load_steps=19 format=3 uid="uid://dwuk01hjwntqr"]
 
 [ext_resource type="Texture2D" uid="uid://cefe64xeaoyjq" path="res://sprites/backroundGame/directorOfice.jpg" id="1_g1lsw"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_qbvbt"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ta72r6k4eky2" path="res://scenes/dialog.tscn" id="8_iabpq"]
 [ext_resource type="PackedScene" uid="uid://dhhehhu2lhap7" path="res://scenes/score_bar.tscn" id="10_j04os"]
 [ext_resource type="PackedScene" uid="uid://dbey54dwl1ptv" path="res://scenes/game_pause.tscn" id="11_xmyny"]
+[ext_resource type="PackedScene" uid="uid://crv5qwr6fkg5h" path="res://scenes/start_hint_for_game.tscn" id="12_ahadn"]
 
 [sub_resource type="Animation" id="Animation_m8kgp"]
 length = 0.001
@@ -174,6 +175,9 @@ wait_time = 2.0
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="StartHintForGame" parent="." instance=ExtResource("12_ahadn")]
+visible = false
 
 [connection signal="timeout" from="EndGame" to="." method="_on_end_game_timeout"]
 [connection signal="timeout" from="TimerForReaction" to="GameManager" method="_on_timer_for_reaction_timeout"]

@@ -265,7 +265,7 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="fifth" type="RichTextLabel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(750, 100)
+custom_minimum_size = Vector2(750, 124)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.2, 0.627451, 1)
 theme_override_fonts/normal_font = ExtResource("1_xmwh7")

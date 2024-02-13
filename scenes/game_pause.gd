@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 
+@onready var HintForGame = preload("res://scenes/start_hint_for_game.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -22,3 +24,10 @@ func _on_menu_pressed():
 #func _input(event):
 #	if event.is_action_pressed("menu"):
 #		show()
+
+
+func _on_hints_for_game_pressed():
+	var HintForGame_instantiate = HintForGame.instantiate()
+	var Game = get_tree().get_root().get_node("Game")
+	Game.add_child(HintForGame_instantiate)
+	

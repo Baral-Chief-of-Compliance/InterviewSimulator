@@ -618,6 +618,8 @@ func show_question():
 		if current_question["answers"] == []:
 			if current_question_index == 0:
 				$VBoxContainer/Button.text = "Готов"
+			else:
+				$VBoxContainer/Button.text = "Узнать результаты"
 			$VBoxContainer/Button.show()
 		else:
 			$VBoxContainer/Button.hide()
@@ -687,6 +689,14 @@ func clean_question():
 	for c in children:
 		c.queue_free()
 		
+		
+func show_answers_color():
+	for el in answereRaws:
+		var children = el.get_children()
+		for c in children:
+			if c is Button:
+				c.show_color()
+		
 
 func clean_answers():
 	#var children = $VBoxContainer/answeres.get_children()
@@ -700,13 +710,18 @@ func clean_answers():
 
 
 func _on_button_pressed():
+	#if current_question_index > 0 and current_question_index < (len(dialog) - 1):
+	#	show_answers_color()
+	
+	#if current_question_index == 0:
 	clean_question()
 	clean_answers()
 	chek_button_hint()
-	
+		
 	current_question_index = current_question_index + 1
 	show_question()
 	await show_answers()
+		
 
 
 func _on_texture_button_pressed():
