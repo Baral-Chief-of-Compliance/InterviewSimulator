@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://de4maqjcmtqn"]
+[gd_scene load_steps=16 format=3 uid="uid://de4maqjcmtqn"]
 
 [ext_resource type="FontFile" uid="uid://but58youek45h" path="res://fonts/Montserrat-Bold.ttf" id="1_4aefj"]
 [ext_resource type="Script" path="res://scenes/game_raiting.gd" id="1_xb8rj"]
@@ -46,10 +46,22 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cover:color")
+tracks/0/path = NodePath("Cover:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cover:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -62,20 +74,122 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cover:color")
+tracks/0/path = NodePath("Cover:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cover:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_6g4ek"]
+resource_name = "coverApiar"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cover:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cover:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p4vxj"]
 _data = {
 "RESET": SubResource("Animation_e68e2"),
+"coverApiar": SubResource("Animation_6g4ek"),
 "coverDesapiar": SubResource("Animation_3xegg")
+}
+
+[sub_resource type="Animation" id="Animation_bhmym"]
+resource_name = "coverApiar"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cover:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cover:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xq7qm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cover:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cover:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28dnw"]
+_data = {
+"RESET": SubResource("Animation_xq7qm"),
+"coverApiar": SubResource("Animation_bhmym")
 }
 
 [node name="GameRaiting" type="CanvasLayer"]
@@ -222,15 +336,26 @@ theme_override_fonts/font = ExtResource("1_4aefj")
 theme_override_font_sizes/font_size = 20
 text = "Отправить оценку"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="CoverDesapiar" type="AnimationPlayer" parent="."]
 autoplay = "coverDesapiar"
 libraries = {
 "": SubResource("AnimationLibrary_p4vxj")
 }
 
 [node name="Cover" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="CoberApiar" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_28dnw")
+}
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer2/score/HBoxContainer/one" to="." method="_on_one_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer2/score/HBoxContainer/two" to="." method="_on_two_pressed"]
@@ -238,3 +363,4 @@ offset_bottom = 40.0
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer2/score/HBoxContainer/four" to="." method="_on_four_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer2/score/HBoxContainer/five" to="." method="_on_five_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer2/VBoxContainer2/ButtonNext" to="." method="_on_button_next_pressed"]
+[connection signal="animation_finished" from="CoberApiar" to="." method="_on_cober_apiar_animation_finished"]

@@ -3,7 +3,7 @@ extends CanvasLayer
 
 
 const GOOD_LABEL = "А теперь еще несколько советов"
-const BAD_LABEL = "Вот пару советов, которые стоит учесть"
+const BAD_LABEL = "Вот несколько советов, которые стоит учесть"
 
 @onready var label = $VBoxContainer/LabelForTips
 

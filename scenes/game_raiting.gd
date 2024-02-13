@@ -39,4 +39,16 @@ func _on_five_pressed():
 
 
 func _on_button_next_pressed():
+	#$HTTPRequest.request("https://sobesedka.site/api/v1/?score-from-user=5", ["User-Agent: YourCustomUserAgent"])
+	var path = "https://sobesedka.site/api/v1/score-from-user/{int}"
+	var actual_path = path.format({"int": Globals.scoreFromUser})
+	$HTTPRequest.request(actual_path, ["User-Agent: YourCustomUserAgent"])
+	$CoberApiar.play("coverApiar")
+	
+	
+	
+
+
+
+func _on_cober_apiar_animation_finished(anim_name):
 	get_tree().change_scene_to_file("res://scenes/game_menu.tscn")
